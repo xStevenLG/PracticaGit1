@@ -74,7 +74,8 @@ public class Main {
         }
     }
 
-    class Estudiante extends Persona {
+    class Estudiante extends Persona implements Trabajador {
+
         private String grado;
 
         // Constructores
@@ -101,5 +102,63 @@ public class Main {
         public String toString() {
             return super.toString() + ", Grado: " + grado;
         }
+
+        @Override
+        public void realizarTarea() {
+            System.out.println("Realizando tarea escolar.");
+        }
+    }
+
+    class Empleado implements Trabajador {
+        private String nombre;
+        private int edad;
+
+        // Constructor
+        public Empleado(String nombre, int edad) {
+            this.nombre = nombre;
+            this.edad = edad;
+        }
+
+        // Getter para el nombre
+        public String getNombre() {
+            return nombre;
+        }
+
+        // Setter para el nombre
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        // Getter para la edad
+        public int getEdad() {
+            return edad;
+        }
+
+        // Setter para la edad con validación
+        public void setEdad(int edad) {
+            if (edad >= 0) {
+                this.edad = edad;
+            } else {
+                throw new IllegalArgumentException("La edad no puede ser negativa");
+            }
+        }
+
+        // Implementación del método realizarTarea()
+        @Override
+        public void realizarTarea() {
+            System.out.println("Realizando tarea laboral.");
+        }
+
+        // Método para representar la información del empleado
+        @Override
+        public String toString() {
+            return "Empleado: " + nombre + " Edad: " + edad;
+        }
+    }
+
+    // Definición de la interfaz Trabajador
+    public interface Trabajador {
+        // Método realizarTarea()
+        void realizarTarea();
     }
 }
