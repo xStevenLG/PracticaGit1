@@ -12,7 +12,52 @@ public class Main {
         private String nombre;
         private int edad;
         private LocalDate fechaNacimiento;
+
+        // Getter para el nombre
+        public String getNombre() {
+            return nombre;
+        }
+
+        // Setter para el nombre con validación
+        public void setNombre(String nombre) {
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+            }
+            this.nombre = nombre;
+        }
+
+        // Getter para la edad
+        public int getEdad() {
+            return edad;
+        }
+
+        // Setter para la edad con validación
+        public void setEdad(int edad) {
+            if (edad >= 0) {
+                this.edad = edad;
+            } else {
+                throw new IllegalArgumentException("La edad no puede ser negativa");
+            }
+        }
+
+        // Getter para la fecha de nacimiento
+        public LocalDate getFechaNacimiento() {
+            return fechaNacimiento;
+        }
+
+        // Setter para la fecha de nacimiento con validación
+        public void setFechaNacimiento(String fechaNacimiento) {
+            try {
+                this.fechaNacimiento = LocalDate.parse(fechaNacimiento);
+            } catch (DateTimeParseException e) {
+                throw new IllegalArgumentException("La fecha de nacimiento debe estar en el formato AAAA-MM-DD");
+            }
+        }
+
+        // Método para calcular la fecha de nacimiento a partir de la edad
+        public void calcularFechaNacimiento() {
+            LocalDate today = LocalDate.now();
+            this.fechaNacimiento = today.minusYears(this.edad);
+        }
     }
-
 }
-
