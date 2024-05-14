@@ -154,5 +154,19 @@ public class Main {
         // Método realizarTarea()
         void realizarTarea();
     }
+
+    public class FiguraGeometrica {
+        // Propiedades privadas
+        private String nombre;
+        private String color;
+
+        // Constructor
+        public FiguraGeometrica(String nombre, String color) {
+            this.nombre = nombre;
+            this.color = color;
+        }
+
+
+    }
 }
 
