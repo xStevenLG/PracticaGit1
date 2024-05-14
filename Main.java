@@ -96,5 +96,11 @@ public class Main {
         }
     }
 
+    // Definición de la interfaz Trabajador
+    public interface Trabajador {
+        // Método realizarTarea()
+        void realizarTarea();
+    }
+
 }
 
