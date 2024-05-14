@@ -4,7 +4,6 @@ import java.time.format.DateTimeParseException;
 public class Main {
     public static void main(String[] args) {
 
-
     }
 
     public class Persona {
@@ -107,16 +106,25 @@ public class Main {
         public void realizarTarea() {
             System.out.println("Realizando tarea escolar.");
         }
+
+        @Override
+        public double calcularSalario() {
+            return 0;
+        }
     }
 
     class Empleado implements Trabajador {
         private String nombre;
         private int edad;
+        private String ciudad;
+        private double salario;
 
         // Constructor
-        public Empleado(String nombre, int edad) {
+        public Empleado(String nombre, int edad, String ciudad, double salario) {
             this.nombre = nombre;
             this.edad = edad;
+            this.ciudad = ciudad;
+            this.salario = salario;
         }
 
         // Getter para el nombre
@@ -143,10 +151,32 @@ public class Main {
             }
         }
 
+        public String getCiudad() {
+            return ciudad;
+        }
+
+        public void setCiudad(String ciudad) {
+            this.ciudad = ciudad;
+        }
+
+        public double getSalario() {
+            return salario;
+        }
+
+        public void setSalario(double salario) {
+            this.salario = salario;
+        }
+
         // Implementación del método realizarTarea()
         @Override
         public void realizarTarea() {
             System.out.println("Realizando tarea laboral.");
+        }
+
+        @Override
+        public double calcularSalario() {
+
+            return 0;
         }
 
         // Método para representar la información del empleado
@@ -156,10 +186,160 @@ public class Main {
         }
     }
 
+    // Subclase Gerente que hereda de Empleado
+    public class Gerente extends Empleado {
+        private double bono;
+
+        // Constructor
+        public Gerente(String nombre, int edad, String ciudad, double salario, String departamento) {
+            super(nombre, edad, ciudad, salario);
+            this.bono = bono;
+        }
+
+        // Getter para bono
+        public double getBono() {
+            return bono;
+        }
+
+        // Setter para bono
+        public void setBono(double bono) {
+            this.bono = bono;
+        }
+
+        // Metodo para calcular salrio con respectivas reglas
+        @Override
+        public double calcularSalario() {
+            return getSalario() + bono;
+        }
+    }
+
+    // Subclase Vendedor que hereda de Empleado
+    public class Vendedor extends Empleado {
+        private double porcentajeComision;
+        private int ventas;
+
+        // Constructor
+        public Vendedor(String nombre, int edad, String ciudad, double salario, double porcentajeComision) {
+            super(nombre, edad, ciudad, salario);
+            this.porcentajeComision = porcentajeComision;
+            this.ventas = ventas;
+        }
+
+        // Getter para porentajeComision
+        public double getPorcentajeComision() {
+            return porcentajeComision;
+        }
+
+        // Setter para porcentajeComision
+        public void setPorcentajeComision(double porcentajeComision) {
+            this.porcentajeComision = porcentajeComision;
+        }
+
+        // Getter para ventas
+        public int getVentas() {
+            return ventas;
+        }
+
+        // Setter para ventas
+        public void setVentas(int ventas) {
+            this.ventas = ventas;
+        }
+
+        // Metodo para calcular salrio con respectivas reglas
+        @Override
+        public double calcularSalario() {
+            return getSalario() + (ventas * porcentajeComision / 100);
+        }
+    }
+
+    // Subclase Secretaria que hereda de Empleado
+    public class Secretaria extends Empleado {
+        private int llamadasAtendidas;
+        private double bonoPorLlamadas;
+
+        // Constructor
+        public Secretaria(String nombre, int edad, String ciudad, double salario, int extensionTelefonica) {
+            super(nombre, edad, ciudad, salario);
+            this.llamadasAtendidas = llamadasAtendidas;
+            this.bonoPorLlamadas = bonoPorLlamadas;
+        }
+
+        // Getter para llamadasAtendidas
+        public int getLlamadasAtendidas() {
+            return llamadasAtendidas;
+        }
+
+        // Setter para llamadasAtendidas
+        public void setLlamadasAtendidas(int llamadasAtendidas) {
+            this.llamadasAtendidas = llamadasAtendidas;
+        }
+
+        // Getter para bonoPorLlamadas
+        public double getBonoPorLlamadas() {
+            return bonoPorLlamadas;
+        }
+
+        // Setter para bonoPorLlamadas
+        public void setNombre(double bonoPorLlamadas) {
+            this.bonoPorLlamadas = bonoPorLlamadas;
+        }
+
+        // Metodo para calcular salrio con respectivas reglas
+        @Override
+        public double calcularSalario() {
+            if (llamadasAtendidas > 30) {
+                return getSalario() + bonoPorLlamadas;
+            } else {
+                return getSalario();
+            }
+        }
+    }
+
+    // Subclase Mantenimiento que hereda de Empleado
+    public class Mantenimiento extends Empleado {
+        private int horasExtras;
+        private double bonoPorHorasExtras;
+
+        // Constructor
+        public Mantenimiento(String nombre, int edad, String ciudad, double salario, String habilidades) {
+            super(nombre, edad, ciudad, salario);
+            this.horasExtras = horasExtras;
+            this.bonoPorHorasExtras = bonoPorHorasExtras;
+        }
+
+        // Getter para horasExtras
+        public int getHorasExtras() {
+            return horasExtras;
+        }
+
+        // Setter para horasExtras
+        public void setHorasExtras(int horasExtras) {
+            this.horasExtras = horasExtras;
+        }
+
+        // Getter para bonoPorHorasExtras
+        public double getBonoPorHorasExtras() {
+            return bonoPorHorasExtras;
+        }
+
+        // Setter para bonoPorHorasExtras
+        public void setBonoPorHorasExtras(double bonoPorHorasExtras) {
+            this.bonoPorHorasExtras = bonoPorHorasExtras;
+        }
+
+        // Metodo para calcular salrio con respectivas reglas
+        @Override
+        public double calcularSalario() {
+            return getSalario() + (horasExtras * bonoPorHorasExtras);
+        }
+    }
+
     // Definición de la interfaz Trabajador
     public interface Trabajador {
         // Método realizarTarea()
         void realizarTarea();
+
+        double calcularSalario();
     }
 
     public class FiguraGeometrica {
