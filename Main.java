@@ -175,6 +175,42 @@ public class Main {
         }
     }
 
+    // Subclase Gerente que hereda de Empleado
+    public class Gerente extends Empleado {
+
+        // Constructor
+        public Gerente(String nombre, int edad, String ciudad, double salario, String departamento) {
+            super(nombre, edad, ciudad, salario);
+        }
+    }
+
+    // Subclase Vendedor que hereda de Empleado
+    public class Vendedor extends Empleado {
+
+        // Constructor
+        public Vendedor(String nombre, int edad, String ciudad, double salario, double porcentajeComision) {
+            super(nombre, edad, ciudad, salario);
+        }
+    }
+
+    // Subclase Secretaria que hereda de Empleado
+    public class Secretaria extends Empleado {
+
+        // Constructor
+        public Secretaria(String nombre, int edad, String ciudad, double salario, int extensionTelefonica) {
+            super(nombre, edad, ciudad, salario);
+        }
+    }
+
+    // Subclase Mantenimiento que hereda de Empleado
+    public class Mantenimiento extends Empleado {
+
+        // Constructor
+        public Mantenimiento(String nombre, int edad, String ciudad, double salario, String habilidades) {
+            super(nombre, edad, ciudad, salario);
+        }
+    }
+
     // Definición de la interfaz Trabajador
     public interface Trabajador {
         // Método realizarTarea()
