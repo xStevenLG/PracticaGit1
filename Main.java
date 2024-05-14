@@ -20,6 +20,9 @@ public class Main {
 
         // Setter para el nombre con validación
         public void setNombre(String nombre) {
+            if (nombre == null || nombre.trim().isEmpty()) {
+                throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+            }
             this.nombre = nombre;
         }
 
@@ -30,7 +33,11 @@ public class Main {
 
         // Setter para la edad con validación
         public void setEdad(int edad) {
-            this.edad = edad;
+            if (edad >= 0) {
+                this.edad = edad;
+            } else {
+                throw new IllegalArgumentException("La edad no puede ser negativa");
+            }
         }
 
         // Getter para la fecha de nacimiento
@@ -40,7 +47,11 @@ public class Main {
 
         // Setter para la fecha de nacimiento con validación
         public void setFechaNacimiento(String fechaNacimiento) {
-            this.fechaNacimiento = LocalDate.parse(fechaNacimiento);
+            try {
+                this.fechaNacimiento = LocalDate.parse(fechaNacimiento);
+            } catch (DateTimeParseException e) {
+                throw new IllegalArgumentException("La fecha de nacimiento debe estar en el formato AAAA-MM-DD");
+            }
         }
     }
 }
