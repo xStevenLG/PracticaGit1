@@ -283,16 +283,6 @@ public class Main {
         public void setNombre(double bonoPorLlamadas) {
             this.bonoPorLlamadas = bonoPorLlamadas;
         }
-
-        // Metodo para calcular salrio con respectivas reglas
-        @Override
-        public double calcularSalario() {
-            if (llamadasAtendidas > 30) {
-                return getSalario() + bonoPorLlamadas;
-            } else {
-                return getSalario();
-            }
-        }
     }
 
     // Subclase Mantenimiento que hereda de Empleado
@@ -327,11 +317,6 @@ public class Main {
             this.bonoPorHorasExtras = bonoPorHorasExtras;
         }
 
-        // Metodo para calcular salrio con respectivas reglas
-        @Override
-        public double calcularSalario() {
-            return getSalario() + (horasExtras * bonoPorHorasExtras);
-        }
     }
 
     // Definición de la interfaz Trabajador
