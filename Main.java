@@ -215,6 +215,15 @@ public class Main {
         public void setAncho(double ancho) {
             this.ancho = ancho;
         }
+
+        public double calcularArea() {
+            return longitud * ancho;
+        }
+
+        // Método para calcular el perímetro del rectángulo
+        public double calcularPerimetro() {
+            return 2 * (longitud + ancho);
+        }
     }
 
     public class Circulo extends FiguraGeometrica {
@@ -234,6 +243,16 @@ public class Main {
 
         public void setRadio(double radio) {
             this.radio = radio;
+        }
+
+        // Método para calcular el área del círculo
+        public double calcularArea() {
+            return Math.PI * radio * radio;
+        }
+
+        // Método para calcular el perímetro del círculo
+        public double calcularPerimetro() {
+            return 2 * Math.PI * radio;
         }
     }
 
@@ -265,6 +284,16 @@ public class Main {
         public void setAltura(double altura) {
             this.altura = altura;
         }
+
+        // Método para calcular el área del triángulo
+        public double calcularArea() {
+            return (base * altura) / 2;
+        }
+
+        // Método para calcular el perímetro del triángulo (solo implementado para triángulos equiláteros)
+        public double calcularPerimetro() {
+            return 3 * base; // Solo para triángulos equiláteros, para otros tipos se requiere lógica adicional
+        }
     }
 
     public class Pentagono extends FiguraGeometrica {
@@ -284,6 +313,16 @@ public class Main {
 
         public void setLado(double lado) {
             this.lado = lado;
+        }
+
+        // Método para calcular el área del pentágono
+        public double calcularArea() {
+            return 0.25 * Math.sqrt(5 * (5 + 2 * Math.sqrt(5))) * lado * lado;
+        }
+
+        // Método para calcular el perímetro del pentágono
+        public double calcularPerimetro() {
+            return 5 * lado;
         }
     }
 }
