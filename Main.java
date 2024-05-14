@@ -13,6 +13,13 @@ public class Main {
         private int edad;
         private LocalDate fechaNacimiento;
 
+        // Constructor
+        public Persona(String nombre, int edad, String fechaNacimiento) {
+            this.setNombre(nombre);
+            this.setEdad(edad);
+            this.setFechaNacimiento(fechaNacimiento);
+        }
+
         // Getter para el nombre
         public String getNombre() {
             return nombre;
@@ -58,6 +65,41 @@ public class Main {
         public void calcularFechaNacimiento() {
             LocalDate today = LocalDate.now();
             this.fechaNacimiento = today.minusYears(this.edad);
+        }
+
+        // Método para representar la información de la persona
+        @Override
+        public String toString() {
+            return "Nombre: " + nombre + ", Edad: " + edad + ", Fecha de Nacimiento: " + fechaNacimiento;
+        }
+    }
+
+    class Estudiante extends Persona {
+        private String grado;
+
+        // Constructores
+        public Estudiante(String nombre, int edad, String fechaNacimiento, String grado) {
+            super(nombre, edad, fechaNacimiento);
+            this.setGrado(grado);
+        }
+
+        // Getter para el grado
+        public String getGrado() {
+            return grado;
+        }
+
+        // Setter para el grado con validación
+        public void setGrado(String grado) {
+            if (grado == null || grado.trim().isEmpty()) {
+                throw new IllegalArgumentException("El grado no puede ser nulo o vacío");
+            }
+            this.grado = grado;
+        }
+
+        // Método sobreescrito para representar la información del estudiante
+        @Override
+        public String toString() {
+            return super.toString() + ", Grado: " + grado;
         }
     }
 }
