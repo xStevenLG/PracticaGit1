@@ -59,6 +59,12 @@ public class Main {
             LocalDate today = LocalDate.now();
             this.fechaNacimiento = today.minusYears(this.edad);
         }
+
+        // Método para representar la información de la persona
+        @Override
+        public String toString() {
+            return "Nombre: " + nombre + ", Edad: " + edad + ", Fecha de Nacimiento: " + fechaNacimiento;
+        }
     }
 
     class Estudiante extends Persona {
@@ -75,6 +81,12 @@ public class Main {
                 throw new IllegalArgumentException("El grado no puede ser nulo o vacío");
             }
             this.grado = grado;
+        }
+
+        // Método sobreescrito para representar la información del estudiante
+        @Override
+        public String toString() {
+            return super.toString() + ", Grado: " + grado;
         }
     }
 
