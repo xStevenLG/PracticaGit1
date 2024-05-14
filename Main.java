@@ -111,11 +111,15 @@ public class Main {
     class Empleado implements Trabajador {
         private String nombre;
         private int edad;
+        private String ciudad;
+        private double salario;
 
         // Constructor
-        public Empleado(String nombre, int edad) {
+        public Empleado(String nombre, int edad, String ciudad, double salario) {
             this.nombre = nombre;
             this.edad = edad;
+            this.ciudad = ciudad;
+            this.salario = salario;
         }
 
         // Getter para el nombre
@@ -140,6 +144,22 @@ public class Main {
             } else {
                 throw new IllegalArgumentException("La edad no puede ser negativa");
             }
+        }
+
+        public String getCiudad() {
+            return ciudad;
+        }
+
+        public void setCiudad(String ciudad) {
+            this.ciudad = ciudad;
+        }
+
+        public double getSalario() {
+            return salario;
+        }
+
+        public void setSalario(double salario) {
+            this.salario = salario;
         }
 
         // Implementación del método realizarTarea()
