@@ -70,6 +70,12 @@ public class Main {
     class Estudiante extends Persona {
         private String grado;
 
+        // Constructores
+        public Estudiante(String nombre, int edad, String fechaNacimiento, String grado) {
+            super(nombre, edad, fechaNacimiento);
+            this.setGrado(grado);
+        }
+
         // Getter para el grado
         public String getGrado() {
             return grado;
