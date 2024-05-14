@@ -67,7 +67,8 @@ public class Main {
         }
     }
 
-    class Estudiante extends Persona {
+    class Estudiante extends Persona implements Trabajador {
+
         private String grado;
 
         // Constructores
@@ -94,6 +95,11 @@ public class Main {
         public String toString() {
             return super.toString() + ", Grado: " + grado;
         }
+
+        @Override
+        public void realizarTarea() {
+            System.out.println("Realizando tarea escolar.");
+        }
     }
 
     // Definición de la interfaz Trabajador
@@ -101,6 +107,5 @@ public class Main {
         // Método realizarTarea()
         void realizarTarea();
     }
-
 }
 
