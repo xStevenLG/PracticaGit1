@@ -62,8 +62,20 @@ public class Main {
     }
 
     class Estudiante extends Persona {
+        private String grado;
 
+        // Getter para el grado
+        public String getGrado() {
+            return grado;
+        }
 
+        // Setter para el grado con validación
+        public void setGrado(String grado) {
+            if (grado == null || grado.trim().isEmpty()) {
+                throw new IllegalArgumentException("El grado no puede ser nulo o vacío");
+            }
+            this.grado = grado;
+        }
     }
 
 }
