@@ -186,5 +186,105 @@ public class Main {
             this.color = color;
         }
     }
+
+    public class Rectangulo extends FiguraGeometrica {
+        // Propiedades adicionales para el rectángulo
+        private double longitud;
+        private double ancho;
+
+        // Constructor
+        public Rectangulo(String nombre, String color, double longitud, double ancho) {
+            super(nombre, color);
+            this.longitud = longitud;
+            this.ancho = ancho;
+        }
+
+        // Getters y Setters para longitud y ancho
+        public double getLongitud() {
+            return longitud;
+        }
+
+        public void setLongitud(double longitud) {
+            this.longitud = longitud;
+        }
+
+        public double getAncho() {
+            return ancho;
+        }
+
+        public void setAncho(double ancho) {
+            this.ancho = ancho;
+        }
+    }
+
+    public class Circulo extends FiguraGeometrica {
+        // Propiedad adicional para el círculo
+        private double radio;
+
+        // Constructor
+        public Circulo(String nombre, String color, double radio) {
+            super(nombre, color);
+            this.radio = radio;
+        }
+
+        // Getter y Setter para el radio
+        public double getRadio() {
+            return radio;
+        }
+
+        public void setRadio(double radio) {
+            this.radio = radio;
+        }
+    }
+
+    public class Triangulo extends FiguraGeometrica {
+        // Propiedades adicionales para el triángulo
+        private double base;
+        private double altura;
+
+        // Constructor
+        public Triangulo(String nombre, String color, double base, double altura) {
+            super(nombre, color);
+            this.base = base;
+            this.altura = altura;
+        }
+
+        // Getters y Setters para base y altura
+        public double getBase() {
+            return base;
+        }
+
+        public void setBase(double base) {
+            this.base = base;
+        }
+
+        public double getAltura() {
+            return altura;
+        }
+
+        public void setAltura(double altura) {
+            this.altura = altura;
+        }
+    }
+
+    public class Pentagono extends FiguraGeometrica {
+        // Propiedad adicional para el pentágono
+        private double lado;
+
+        // Constructor
+        public Pentagono(String nombre, String color, double lado) {
+            super(nombre, color);
+            this.lado = lado;
+        }
+
+        // Getter y Setter para el lado
+        public double getLado() {
+            return lado;
+        }
+
+        public void setLado(double lado) {
+            this.lado = lado;
+        }
+    }
 }
 
