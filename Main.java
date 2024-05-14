@@ -53,6 +53,12 @@ public class Main {
                 throw new IllegalArgumentException("La fecha de nacimiento debe estar en el formato AAAA-MM-DD");
             }
         }
+
+        // Método para calcular la fecha de nacimiento a partir de la edad
+        public void calcularFechaNacimiento() {
+            LocalDate today = LocalDate.now();
+            this.fechaNacimiento = today.minusYears(this.edad);
+        }
     }
 }
 
