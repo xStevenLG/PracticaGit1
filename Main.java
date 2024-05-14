@@ -166,7 +166,25 @@ public class Main {
             this.color = color;
         }
 
+        // Getter para el nombre
+        public String getNombre() {
+            return nombre;
+        }
 
+        // Setter para el nombre
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        // Getter para el color
+        public String getColor() {
+            return color;
+        }
+
+        // Setter para el color
+        public void setColor(String color) {
+            this.color = color;
+        }
     }
 }
 
