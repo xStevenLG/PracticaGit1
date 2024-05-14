@@ -60,5 +60,11 @@ public class Main {
             this.fechaNacimiento = today.minusYears(this.edad);
         }
     }
+
+    class Estudiante extends Persona {
+
+
+    }
+
 }
 
