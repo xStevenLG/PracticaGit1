@@ -4,7 +4,6 @@ import java.time.format.DateTimeParseException;
 public class Main {
     public static void main(String[] args) {
 
-
     }
 
     public class Persona {
@@ -12,6 +11,13 @@ public class Main {
         private String nombre;
         private int edad;
         private LocalDate fechaNacimiento;
+
+        // Constructor
+        public Persona(String nombre, int edad, String fechaNacimiento) {
+            this.setNombre(nombre);
+            this.setEdad(edad);
+            this.setFechaNacimiento(fechaNacimiento);
+        }
 
         // Getter para el nombre
         public String getNombre() {
